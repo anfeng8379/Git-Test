@@ -1,0 +1,26 @@
+关于关键词没有回显，查询不到信息：
+update t_eventset set itemid=17 where describe='关键词';
+
+
+
+修改V_EventList视图：
+create or replace view v_eventlist as
+select distinct t1.EventID, t1.qcperson,t1.RegDate, t1.CamID, t3.Name as CamName, t3.camidinds,t1.Type as EventType, t6.Describe as EventKind, t2.BeginTime, t2.EndTime, t3.Location, t3.MonitorRange, t4.Name as UserName, t7.ExContent as Keyword, t8.name as Department, t1.QCValue, t1.QCContent,t9.Describe as Soures
+from T_Event t1
+left join T_EventRes t2 on t2.EventID = t1.EventID and t2.type=2
+left join T_Cam t3 on t3.id = t1.CamID
+left join T_User t4 on t4.id = t1.RegUserID
+left join T_EventContent t5 on t5.EventID = t1.EventID
+left join T_EventSet t6 on t6.ItemID = t5.ItemID and t6.ParentID = 0
+left join T_EventContent t7 on t7.EventID = t1.EventID and t7.ItemID in (select ItemID from T_EventSet where ParentID = 2 and Describe = '关键词')
+left join T_EventContent t10 on t10.EventID = t1.EventID and t10.ItemID=12
+left join t_Usergroup t8 on t8.id =t10.contentid and t8.isdelete=0
+left join t_Eventset t9 on t9.ParentID in (select ItemID from T_EventSet where ParentID = 2 and Describe = '来源') and t9.ItemID in (select ContentID from T_EventContent where EventID = t1.EventID)
+/
+
+
+修改“分局管理员”名称为“分所管理员”：
+update T_USERROLE set Name='分所管理员' where id=2 and name='分局管理员';
+
+
+

@@ -11,4 +11,11 @@ jjjjjjjjjjjjjjjjjjjj
 
 坎坎坷坷扩扩扩扩扩扩扩扩扩扩扩扩扩扩扩扩扩扩扩扩扩扩多多多多多多多多多多多多
 
+<<<<<<< HEAD
 分支：branch,branch,branch,branch,branch,branch,branch
+=======
+分支：v1.1-shiaf,v1.1-shiaf,v1.1-shiaf,v1.1-shiaf,v1.1-shiaf,v1.1-shiaf,
+
+OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK 
+>>>>>>> v1.1-shiaf
+ddddddddddkkkkkkk
